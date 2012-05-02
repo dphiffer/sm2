@@ -18,11 +18,14 @@ var playlist = [
   '/path/to/3.mp3'
 ];
 var position = 0;
-function callback() {
+function play_next() {
   position = (position + 1) % playlist.length;
+  play_current();
+}
+function callback() {
   play_next();
 }
-function play_next() {
+function play_current() {
   sm2.play(playlist[position], callback);
 }
 function pause_current() {
