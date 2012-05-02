@@ -9,7 +9,10 @@ sm2.pause('/path/to/sound.mp3');
 
 // Enable looping
 var loop = true;
-sm2.toggle('/path/to/sound.mp3', loop);
+sm2.play('/path/to/sound.mp3', loop);
+
+// Toggle play/pause
+var playing = sm2.toggle('/path/to/sound.mp3');
 
 // Using a playlist
 var playlist = [
@@ -19,6 +22,7 @@ var playlist = [
 ];
 var position = 0;
 function play_next() {
+  pause_current();
   position = (position + 1) % playlist.length;
   play_current();
 }
@@ -31,7 +35,9 @@ function play_current() {
 function pause_current() {
   sm2.pause(playlist[position]);
 }
-play_next();
+function toggle_current() {
+  sm2.toggle(playlist[position], callback);
+}
 
 */
 
