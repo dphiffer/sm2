@@ -14,6 +14,12 @@ sm2.play('/path/to/sound.mp3', loop);
 // Toggle play/pause
 var playing = sm2.toggle('/path/to/sound.mp3');
 
+// Play and pause methods return a SoundManager2 sound object
+var sound = sm2.play('/path/to/sound.mp3');
+sound.onid3 = function(id3) {
+  // handle id3 info
+};
+
 // Set a callback when the sound finishes playing
 // Note: the second argument can either be a boolean (to control looping) or
 //       a function (treated as a callback)
@@ -115,14 +121,16 @@ var sm2 = {
      sound.callback = option;
    }
    sound.play();
-   return true;
+   return sound;
  },
 
  pause: function(url) {
-   if (!this.sounds[url]) {
+   var sound = this.sounds[url];
+   if (!sound) {
      return false;
    }
-   this.sounds[url].pause();
+   sound.pause();
+   return sound;
  },
 
  toggle: function(url, option) {
