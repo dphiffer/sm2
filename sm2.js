@@ -13,6 +13,11 @@ sm2.play('/path/to/sound.mp3', loop);
 
 // Toggle play/pause
 var playing = sm2.toggle('/path/to/sound.mp3');
+if (playing) {
+  // update UI
+} else {
+  // update UI
+}
 
 // Play and pause methods return a SoundManager2 sound object
 var sound = sm2.play('/path/to/sound.mp3');
