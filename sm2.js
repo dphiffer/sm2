@@ -14,9 +14,9 @@ sm2.play('/path/to/sound.mp3', loop);
 // Toggle play/pause
 var playing = sm2.toggle('/path/to/sound.mp3');
 
-// Set a callback when the sound finishes
+// Set a callback when the sound finishes playing
 // Note: the second argument can either be a boolean (to control looping) or
-//       a function (as a callback)
+//       a function (treated as a callback)
 sm2.play('/path/to/mp3', function() {
   // do something here
 });
