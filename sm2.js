@@ -139,7 +139,7 @@ var sm2 = {
  },
 
  toggle: function(url, option) {
-   if (!this.sounds[url] || this.sounds[url].paused) {
+   if (!this.sounds[url] || this.sounds[url].paused || !this.sounds[url].playState) {
      this.play(url, option);
      return true;
    } else {
